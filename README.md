@@ -26,7 +26,7 @@ Or install it yourself as:
 irb(main):001:0> TimeDurationHumanizer.humanize(12345)
 => "3 hours, 25 minutes and 45 seconds"
 
-irb(main):002:0> TimeDurationHumanizer.humanize(12345, {}, end_at_end: false)
+irb(main):002:0> TimeDurationHumanizer.humanize(12345, {}, and_at_end: false)
 => "3 hours, 25 minutes, 45 seconds"
 
 irb(main):003:0> TimeDurationHumanizer.humanize(1234567890)
