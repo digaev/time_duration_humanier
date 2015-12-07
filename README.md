@@ -26,17 +26,28 @@ Or install it yourself as:
 irb(main):001:0> TimeDurationHumanizer.humanize(12345)
 => "3 hours, 25 minutes and 45 seconds"
 
-irb(main):002:0> TimeDurationHumanizer.humanize(12345, {}, and_at_end: false)
+irb(main):002:0> TimeDurationHumanizer.humanize(12345, { and_at_end: false })
 => "3 hours, 25 minutes, 45 seconds"
 
 irb(main):003:0> TimeDurationHumanizer.humanize(1234567890)
 => "39 years, 1 month, 14 days, 5 hours, 31 minutes and 30 seconds"
 
-irb(main):004:0> TimeDurationHumanizer.humanize(1234567890, { weeks: true })
+irb(main):004:0> TimeDurationHumanizer.humanize(1234567890, {}, { weeks: true })
 => "39 years, 1 month, 2 weeks, 5 hours, 31 minutes and 30 seconds"
+
+irb(main):005:0> TimeDurationHumanizer.humanize(62208000)
+=> "1 year, 11 months, 24 days and 18 hours"
+
+irb(main):006:0> TimeDurationHumanizer.humanize(62208000, { days_in_year: 360 })
+=> "2 years"
 ```
 
-## Options (second parameter)
+## Options (seconds parameter)
+
+* end_at_end - default `true`
+* days_in_year - default `365.25`
+
+## Units (third parameter)
 
 * years - default `true`
 * months - default `true`
