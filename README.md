@@ -1,5 +1,7 @@
 # TimeDurationHumanizer
 
+[![Gem Version](https://badge.fury.io/rb/time_duration_humanizer.svg)](https://badge.fury.io/rb/time_duration_humanizer)
+
 An extremely simple gem for converting seconds to human-readable format.
 
 ## Installation
