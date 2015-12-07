@@ -26,9 +26,27 @@ irb(main):001:0> TimeDurationHumanizer.humanize(12345)
 
 irb(main):002:0> TimeDurationHumanizer.humanize(12345, {}, end_at_end: false)
 => "3 hours, 25 minutes, 45 seconds"
+
+irb(main):003:0> TimeDurationHumanizer.humanize(1234567890)
+=> "39 years, 1 month, 14 days, 5 hours, 31 minutes and 30 seconds"
+
+irb(main):004:0> TimeDurationHumanizer.humanize(1234567890, { weeks: true })
+=> "39 years, 1 month, 2 weeks, 5 hours, 31 minutes and 30 seconds"
 ```
 
-It's also support localization. In your Rails application edit config/locales/en.yml:
+## Options (second parameter)
+
+* years - default `true`
+* months - default `true`
+* weeks - default `false`
+* days - default `true`
+* hours - default `true`
+* minutes - default `true`
+* seconds - default `true`
+
+## Localization
+
+In your Rails application edit `config/locales/en.yml`:
 
 ```yml
 en:
@@ -53,4 +71,3 @@ en:
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/digaev/time_duration_humanizer.
-
