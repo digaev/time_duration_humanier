@@ -42,7 +42,7 @@ irb(main):006:0> TimeDurationHumanizer.humanize(62208000, { days_in_year: 360 })
 => "2 years"
 ```
 
-## Options (seconds parameter)
+## Options (second parameter)
 
 * end_at_end - default `true`
 * days_in_year - default `365.25`
