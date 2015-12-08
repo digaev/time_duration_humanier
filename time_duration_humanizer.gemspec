@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nikolay Digaev"]
   spec.email         = ["ffs.cmp@gmail.com"]
 
-  spec.summary       = %q{An extremely simple gem for converting seconds to human-readable format.}
-  spec.description   = %q{An extremely simple gem for converting seconds to human-readable format (12345 => "3 hours, 25 minutes and 45 seconds").}
+  spec.summary       = %q{An extremely simple gem for converting seconds into human-readable format.}
+  spec.description   = %q{An extremely simple gem for converting seconds into human-readable format (12345 => "3 hours, 25 minutes and 45 seconds").}
   spec.homepage      = "https://github.com/digaev/time_duration_humanier"
   spec.license       = "MIT"
 
