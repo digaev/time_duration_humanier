@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/time_duration_humanizer.svg)](https://badge.fury.io/rb/time_duration_humanizer)
 
-An extremely simple gem for converting seconds into human-readable format.
+A Ruby gem for converting seconds into human-readable format.
 
 ## Installation
 
@@ -45,7 +45,7 @@ irb(main):006:0> TimeDurationHumanizer.humanize(62208000, { days_in_year: 360 })
 ## Options (second parameter)
 
 * and_at_end - default `true`
-* days_in_year - default `365.25`
+* days_in_year - default `1.year / 1.day` (365.25)
 
 ## Units (third parameter)
 
