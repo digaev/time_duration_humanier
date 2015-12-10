@@ -6,7 +6,7 @@ module TimeDurationHumanizer
   def self.humanize(seconds, options = {}, units = {})
     options = {
       and_at_end: true,
-      days_in_year: 365.25
+      days_in_year: 1.year / 1.day
     }.merge!(options.symbolize_keys)
 
     units = {
