@@ -1,6 +1,3 @@
-require 'active_support/all'
-require 'i18n'
-require 'time_duration_humanizer'
 require 'test_helper'
 
 class TimeDurationHumanizerTest < TimeDurationHumanizer::Test
