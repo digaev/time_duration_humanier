@@ -4,14 +4,14 @@ require 'time_duration_humanizer'
 require 'test_helper'
 
 class TimeDurationHumanizerTest < TimeDurationHumanizer::Test
-  def test_plural_time
-    assert_equal '1 hour, 1 minute and 1 second',  TimeDurationHumanizer.humanize(3661)
-    assert_equal '1 hour, 1 minute, 1 second',  TimeDurationHumanizer.humanize(3661, { and_at_end: false })
-  end
-
   def test_singular_time
     assert_equal '2 hours, 2 minutes and 2 seconds',  TimeDurationHumanizer.humanize(7322)
     assert_equal '2 hours, 2 minutes, 2 seconds',  TimeDurationHumanizer.humanize(7322, { and_at_end: false })
+  end
+
+  def test_plural_time
+    assert_equal '1 hour, 1 minute and 1 second',  TimeDurationHumanizer.humanize(3661)
+    assert_equal '1 hour, 1 minute, 1 second',  TimeDurationHumanizer.humanize(3661, { and_at_end: false })
   end
 
   def test_singular_date
