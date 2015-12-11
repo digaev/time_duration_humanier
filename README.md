@@ -1,6 +1,6 @@
 # TimeDurationHumanizer
 
-[![Gem Version](https://badge.fury.io/rb/time_duration_humanizer.svg)](https://badge.fury.io/rb/time_duration_humanizer)
+[![Gem Version](https://badge.fury.io/rb/time_duration_humanizer.svg)](https://badge.fury.io/rb/time_duration_humanizer) [![Build Status](https://travis-ci.org/digaev/time_duration_humanizer.svg)](https://travis-ci.org/digaev/time_duration_humanizer)
 
 A Ruby gem for converting seconds into human-readable format.
 
