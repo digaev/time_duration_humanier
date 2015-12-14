@@ -1,4 +1,3 @@
-require 'active_support/all'
 require 'i18n'
 require 'minitest/autorun'
 require 'time_duration_humanizer'

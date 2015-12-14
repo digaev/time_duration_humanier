@@ -1,13 +1,21 @@
 require "time_duration_humanizer/version"
 
 module TimeDurationHumanizer
-  @@known_units = [:years, :months, :weeks, :days, :hours, :minutes, :seconds]
+  @@units = {
+    years: 31557600,
+    months: 2592000,
+    weeks: 604800,
+    days: 86400,
+    hours: 3600,
+    minutes: 60,
+    seconds: 1
+  }
 
   def self.humanize(seconds, options = {}, units = {})
     options = {
       and_at_end: true,
-      days_in_year: 1.year / 1.day
-    }.merge!(options.symbolize_keys)
+      days_in_year: 365.25
+    }.merge!(options)
 
     units = {
       years: true,
@@ -17,14 +25,14 @@ module TimeDurationHumanizer
       hours: true,
       minutes: true,
       seconds: true
-    }.merge!(units.symbolize_keys)
+    }.merge!(units)
 
     values = []
     duration = ''
 
     units.each do |k, v|
-      if v == true && @@known_units.include?(k)
-        u = (k == :years ? options[:days_in_year].days : 1.send(k)).to_i
+      if v == true && @@units.keys.include?(k)
+        u = k == :years ? (options[:days_in_year] * @@units[:days]).to_i : @@units[k]
         value = seconds >= u ? seconds / u : 0
         if value > 0
           values << { name: k.to_s, value: value }
@@ -36,7 +44,7 @@ module TimeDurationHumanizer
     l = values.length
     values.each_with_index do |v, i|
       separator = i == l - 1 ? '' : (i == l - 2 && options[:and_at_end] == true ? " #{I18n.t('time_duration_humanizer.and')} " : ', ')
-      duration += "#{v[:value]} #{I18n.t("time_duration_humanizer.#{v[:value] == 1 ? v[:name].singularize : v[:name]}")}#{separator}"
+      duration += "#{v[:value]} #{I18n.t("time_duration_humanizer.#{v[:value] == 1 ? v[:name].chop : v[:name]}")}#{separator}"
     end
 
     duration
