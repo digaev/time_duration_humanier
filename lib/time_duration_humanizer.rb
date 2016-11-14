@@ -1,50 +1,42 @@
-require "time_duration_humanizer/version"
+require 'time_duration_humanizer/version'
 
 module TimeDurationHumanizer
-  @@units = {
-    years: 31557600,
-    months: 2592000,
-    weeks: 604800,
-    days: 86400,
-    hours: 3600,
-    minutes: 60,
-    seconds: 1
-  }
+  DAYS_IN_YEAR = 365.25
+  UNITS = {
+    year: 315_576_00,
+    month: 259_200_0,
+    week: 604_800,
+    day: 864_00,
+    hour: 3600,
+    minute: 60,
+    second: 1
+  }.freeze
 
   def self.humanize(seconds, options = {}, units = {})
-    options = {
-      and_at_end: true,
-      days_in_year: 365.25
-    }.merge!(options)
-
+    options = { and_at_end: true, days_in_year: DAYS_IN_YEAR }.merge!(options)
     units = {
-      years: true,
-      months: true,
-      weeks: false,
-      days: true,
-      hours: true,
-      minutes: true,
-      seconds: true
+      year: true, month: true, week: false, day: true,
+      hour: true, minute: true, second: true
     }.merge!(units)
 
     values = []
     duration = ''
 
-    units.each do |k, v|
-      if v == true && @@units.keys.include?(k)
-        u = k == :years ? (options[:days_in_year] * @@units[:days]).to_i : @@units[k]
-        value = seconds >= u ? seconds / u : 0
-        if value > 0
-          values << { name: k.to_s, value: value }
-          seconds -= value * u
-        end
+    units.select { |k, _| UNITS.keys.include?(k) }.each do |k, v|
+      next if v != true
+
+      secs = k == :year ? (options[:days_in_year] * UNITS[:day]).to_i : UNITS[k]
+      value = seconds >= secs ? seconds / secs : 0
+      if value > 0
+        values << { name: k.to_s, value: value }
+        seconds -= value * secs
       end
     end
 
     l = values.length
     values.each_with_index do |v, i|
       separator = i == l - 1 ? '' : (i == l - 2 && options[:and_at_end] == true ? " #{I18n.t('time_duration_humanizer.and')} " : ', ')
-      duration += "#{v[:value]} #{I18n.t("time_duration_humanizer.#{v[:name].chop}", count: v[:value])}#{separator}"
+      duration += "#{v[:value]} #{I18n.t("time_duration_humanizer.#{v[:name]}", count: v[:value])}#{separator}"
     end
 
     duration

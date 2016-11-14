@@ -44,18 +44,18 @@ irb(main):006:0> TimeDurationHumanizer.humanize(62208000, { days_in_year: 360 })
 
 ## Options (second parameter)
 
-* and_at_end - default `true`
-* days_in_year - default `365.25`
+* `and_at_end` - default `true`
+* `days_in_year` - default `365.25`
 
 ## Units (third parameter)
 
-* years - default `true`
-* months - default `true`
-* weeks - default `false`
-* days - default `true`
-* hours - default `true`
-* minutes - default `true`
-* seconds - default `true`
+* `year` - default `true`
+* `month` - default `true`
+* `week` - default `false`
+* `day` - default `true`
+* `hour` - default `true`
+* `minute` - default `true`
+* `second` - default `true`
 
 ## Localization
 

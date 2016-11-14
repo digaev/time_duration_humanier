@@ -25,14 +25,14 @@ class TimeDurationHumanizerTest < TimeDurationHumanizer::Test
     assert_equal '7 days', TimeDurationHumanizer.humanize(604800)
     assert_equal '14 days', TimeDurationHumanizer.humanize(1209600)
 
-    assert_equal '1 week', TimeDurationHumanizer.humanize(604800, {}, { weeks: true })
-    assert_equal '2 weeks', TimeDurationHumanizer.humanize(1209600, {}, { weeks: true })
+    assert_equal '1 week', TimeDurationHumanizer.humanize(604800, {}, { week: true })
+    assert_equal '2 weeks', TimeDurationHumanizer.humanize(1209600, {}, { week: true })
 
     assert_equal '1 year, 1 month and 8 days', TimeDurationHumanizer.humanize(34840800)
-    assert_equal '1 year, 1 month, 1 week and 1 day', TimeDurationHumanizer.humanize(34840800, {}, { weeks: true })
+    assert_equal '1 year, 1 month, 1 week and 1 day', TimeDurationHumanizer.humanize(34840800, {}, { week: true })
 
     assert_equal '1 year, 1 month and 15 days', TimeDurationHumanizer.humanize(35445600)
-    assert_equal '1 year, 1 month, 2 weeks and 1 day', TimeDurationHumanizer.humanize(35445600, {}, { weeks: true })
+    assert_equal '1 year, 1 month, 2 weeks and 1 day', TimeDurationHumanizer.humanize(35445600, {}, { week: true })
   end
 
   def test_days_in_years
