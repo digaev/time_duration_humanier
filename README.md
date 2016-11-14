@@ -65,20 +65,27 @@ In your Rails application edit `config/locales/en.yml`:
 en:
   time_duration_humanizer:
     and: and
-    year: year
-    years: years
-    month: month
-    months: months
-    week: week
-    weeks: weeks
-    day: day
-    days: days
-    hour: hour
-    hours: hours
-    minute: minute
-    minutes: minutes
-    second: second
-    seconds: seconds
+    year:
+      one: year
+      other: years
+    month:
+      one: month
+      other: months
+    week:
+      one: week
+      other: weeks
+    day:
+      one: day
+      other: days
+    hour:
+      one: hour
+      other: hours
+    minute:
+      one: minute
+      other: minutes
+    second:
+      one: second
+      other: seconds
 ```
 
 ## Contributing

@@ -44,7 +44,7 @@ module TimeDurationHumanizer
     l = values.length
     values.each_with_index do |v, i|
       separator = i == l - 1 ? '' : (i == l - 2 && options[:and_at_end] == true ? " #{I18n.t('time_duration_humanizer.and')} " : ', ')
-      duration += "#{v[:value]} #{I18n.t("time_duration_humanizer.#{v[:value] == 1 ? v[:name].chop : v[:name]}")}#{separator}"
+      duration += "#{v[:value]} #{I18n.t("time_duration_humanizer.#{v[:name].chop}", count: v[:value])}#{separator}"
     end
 
     duration
