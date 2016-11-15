@@ -42,7 +42,7 @@ irb(main):006:0> 62208000.to_duration(days_in_year: 360)
 => "2 years"
 ```
 
-## Options (second parameter)
+## Options
 
 * `and_at_end` - default `true`
 * `days_in_year` - default `365.25`
